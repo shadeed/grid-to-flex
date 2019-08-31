@@ -4,13 +4,73 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Underliner</title>
+    <title>• Grid to Flexbox</title>
     <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/app.css">
+    <script src="js/app.js"></script>
 </head>
 
 <body>
-    <h1>Hello world</h1>
+    <header class="c-header">
+        <div>
+            <h1 class="c-page-title">Grid to Flex</h1>
+            <p>Easily create Flexbox fallback for your CSS Grid!</p>
+        </div>
+
+        <div>
+            <p>By Ahmad Shadeed <a href="#">@shadeed9</a></p>
+        </div>
+    </header>
+
+    <div class="wrapper">
+        <aside class="c-sidebar">
+            <form>
+                <!--<p>-->
+                    <!--<label class="c-label" for="columns">Number of Columns</label>-->
+                    <!--<input class="c-input" type="number" id="columns" placeholder="e.g: 3" value="3">-->
+                <!--</p>-->
+                <p>
+                    <label class="c-label" for="itemWidth">Minimum Item Width</label>
+                    <input class="c-input" type="number" step="25" id="itemWidth" placeholder="e.g: 200px" value="200" pattern="\d*">
+                </p>
+                <p>
+                    <label class="c-label" for="gridGap">Grid Gap</label>
+                    <input class="c-input" type="number" id="gridGap" placeholder="e.g: 10px">
+
+                    <input class="" type="checkbox" id="gap">
+                    <label class="" for="gap">Use for cols and rows</label>
+                </p>
+
+                <h2>Flexbox Breakpoints</h2>
+                <div>
+                    <h3>Breakpoint 1 <button>remove</button></h3>
+                    <div class="o-grid--2">
+                        <p>
+                            <label class="c-label" for="fromWidth">From width</label>
+                            <input class="c-input" type="number" id="fromWidth" placeholder="e.g: 200px" pattern="\d*">
+                        </p>
+                        <p>
+                            <label class="c-label" for="itemsToShow">Items to show</label>
+                            <input class="c-input" type="number" id="itemsToShow" placeholder="e.g: 3" pattern="\d*">
+                        </p>
+                    </div>
+                </div>
+            </form>
+        </aside>
+        <main class="c-main">
+            <div class="js-grid">
+                <div class="js-grid-item"></div>
+                <div class="js-grid-item"></div>
+                <div class="js-grid-item"></div>
+                <div class="js-grid-item"></div>
+                <div class="js-grid-item"></div>
+                <div class="js-grid-item"></div>
+                <div class="js-grid-item"></div>
+                <div class="js-grid-item"></div>
+                <div class="js-grid-item"></div>
+            </div>
+        </main>
+    </div>
 
     <script src="js/app.js"></script>
 </body>
