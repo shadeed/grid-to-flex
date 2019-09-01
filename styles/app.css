@@ -63,6 +63,17 @@ input[type=search] {
   -moz-box-sizing: content-box;
   box-sizing: content-box; }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  /* display: none; <- Crashes Chrome on hover */
+  -webkit-appearance: none;
+  margin: 0;
+  /* <-- Apparently some margin are still there even though it's hidden */ }
+
+input[type=number] {
+  -moz-appearance: textfield;
+  /* Firefox */ }
+
 textarea {
   overflow: auto;
   vertical-align: top;
@@ -347,6 +358,9 @@ h3 {
   font-size: 1.25rem;
   margin-bottom: 0.5rem; }
 
+.c-form__item {
+  margin-bottom: 1rem; }
+
 .c-input:not([type="checkbox"]) {
   display: block;
   width: 100%;
@@ -354,7 +368,11 @@ h3 {
   color: #3863D9;
   padding: 0.65rem 0.5rem;
   border: 2px solid #c6c6c6;
-  border-radius: 4px; }
+  border-radius: 4px;
+  transition: 0.2s ease-out; }
+  .c-input:not([type="checkbox"]):focus {
+    border-color: #3863D9;
+    box-shadow: 0 3px 10px 0 rgba(56, 99, 217, 0.25); }
 
 .c-label {
   display: block;
@@ -368,7 +386,7 @@ form > p {
   display: flex;
   justify-content: space-between;
   color: #fff;
-  background: #3863d9;
+  background: #3863D9;
   padding: 1rem;
   box-shadow: 0 3px 30px 0 rgba(0, 0, 0, 0.4); }
   .c-header a {
@@ -399,8 +417,7 @@ form > p {
   background: #3b3b3b; }
 
 .js-grid {
-  width: 100%;
-  max-width: 900px;
+  width: 90%;
   margin: 1rem auto;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr; }

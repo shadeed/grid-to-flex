@@ -24,22 +24,27 @@
 
     <div class="wrapper">
         <aside class="c-sidebar">
-            <form>
-                <!--<p>-->
-                    <!--<label class="c-label" for="columns">Number of Columns</label>-->
-                    <!--<input class="c-input" type="number" id="columns" placeholder="e.g: 3" value="3">-->
-                <!--</p>-->
-                <p>
+            <form class="c-form">
+                <div class="c-form__item">
                     <label class="c-label" for="itemWidth">Minimum Item Width</label>
-                    <input class="c-input" type="number" step="25" id="itemWidth" placeholder="e.g: 200px" value="200" pattern="\d*">
-                </p>
-                <p>
-                    <label class="c-label" for="gridGap">Grid Gap</label>
-                    <input class="c-input" type="number" id="gridGap" placeholder="e.g: 10px">
+                    <input class="c-input" type="number" min="0" step="20" id="itemWidth" placeholder="e.g: 200px" pattern="\d*">
+                </div>
+                <div class="c-form__item o-grid--2">
+                    <div>
+                        <label class="c-label" for="gridColGap">Grid Column Gap</label>
+                        <input class="c-input" type="number" min="0" step="4" id="gridColGap" placeholder="e.g: 10px">
+                    </div>
 
-                    <input class="" type="checkbox" id="gap">
-                    <label class="" for="gap">Use for cols and rows</label>
-                </p>
+                    <div>
+                        <label class="c-label" for="gridRowGap">Grid Row Gap</label>
+                        <input class="c-input" type="number" min="0" step="4" id="gridRowGap" placeholder="e.g: 10px">
+                    </div>
+                </div>
+
+                <div class="c-form__item">
+                    <input class="" type="checkbox" id="unifyGap">
+                    <label class="" for="unifyGap">Unify the gap for columns and rows</label>
+                </div>
 
                 <h2>Flexbox Breakpoints</h2>
                 <div>
@@ -55,6 +60,8 @@
                         </p>
                     </div>
                 </div>
+
+                <p>RTL spacing</p>
             </form>
         </aside>
         <main class="c-main">
