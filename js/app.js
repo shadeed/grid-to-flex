@@ -44,6 +44,8 @@ unifyGap.addEventListener('input', function () {
        isUnify = true;
 
        generateGridItems();
+   } else {
+       isUnify = false;
    }
 });
 
