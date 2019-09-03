@@ -26,7 +26,7 @@
         <aside class="c-sidebar">
             <form class="c-form">
                 <div class="c-form__item">
-                    <label class="c-label" for="itemWidth">Minimum Item Width</label>
+                    <label class="c-label" for="itemWidth">Min Item Width</label>
                     <input class="c-input" type="number" min="0" step="20" id="itemWidth" placeholder="e.g: 200px" pattern="\d*">
                 </div>
                 <div class="c-form__item o-grid--2">
@@ -41,31 +41,34 @@
                     </div>
                 </div>
 
-                <div class="c-form__item">
-                    <input class="" type="checkbox" id="unifyGap">
+                <div class="c-form__item" style="margin-bottom: 32px;">
+                    <input class="" type="checkbox" id="unifyGap" checked>
                     <label class="" for="unifyGap">Unify the gap for columns and rows</label>
                 </div>
 
-                <h2>Flexbox Breakpoints</h2>
-                <div>
-                    <h3>Breakpoint 1 <button>remove</button></h3>
-                    <div class="o-grid--2">
-                        <p>
-                            <label class="c-label" for="fromWidth">From width</label>
-                            <input class="c-input" type="number" id="fromWidth" placeholder="e.g: 200px" pattern="\d*">
-                        </p>
-                        <p>
-                            <label class="c-label" for="itemsToShow">Items to show</label>
-                            <input class="c-input" type="number" id="itemsToShow" placeholder="e.g: 3" pattern="\d*">
-                        </p>
+                <h2>Flex Breakpoints</h2>
+                <button id="addBreakpoint">Add breakpoint</button>
+
+                <div class="flex-breakpoints">
+                    <div class="flex-breakpoints-list">
+
                     </div>
                 </div>
 
-                <p>RTL spacing</p>
+
+
+                <hr style="margin-bottom: 20px;">
+
+                <button id="generateCSS" class="c-button">Generate CSS</button>
+
+                <p><br> <br> RTL spacing</p>
             </form>
         </aside>
         <main class="c-main">
             <div class="js-grid">
+                <div class="js-grid-item"></div>
+                <div class="js-grid-item"></div>
+                <div class="js-grid-item"></div>
                 <div class="js-grid-item"></div>
                 <div class="js-grid-item"></div>
                 <div class="js-grid-item"></div>

@@ -61,6 +61,23 @@ form {
 	}
 }
 
+.c-button {
+	appearance: none;
+	display: block;
+	width: 100%;
+	font-size: 16px;
+	background: $color-primary;
+	color: #fff;
+	border: 0;
+	padding: 0.65rem 0.5rem 0.8rem;
+	border-radius: 4px;
+	transition: 0.2s ease-out;
+
+	&:hover {
+		background: darken($color-primary, 10%);
+	}
+}
+
 .c-header {
 	position: relative;
 	display: flex;
@@ -84,7 +101,7 @@ form {
 .wrapper {
 	flex-grow: 1;
 	display: grid;
-	grid-template-columns: 360px 1fr;
+	grid-template-columns: 320px 1fr;
 }
 
 .o-grid--2 {
@@ -105,7 +122,7 @@ form {
 }
 
 .js-grid {
-	width: 90%;
+	width: 95%;
 	margin: 1rem auto;
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr;
@@ -116,4 +133,13 @@ form {
 	background: rgba(#fff, 0.06);
 	border: 2px dashed #707070;
 	min-height: 160px;
+}
+
+/* Flexbox Breapoints */
+.flex-breakpoints-item {
+	margin-bottom: 1.5rem;
+
+	button {
+		font-size: 14px;
+	}
 }
