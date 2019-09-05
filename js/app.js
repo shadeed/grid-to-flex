@@ -5,7 +5,8 @@ var unifyGap = document.querySelector('#unifyGap');
 var gridWrapper = document.querySelector('.js-grid');
 
 var breakPointsList = document.querySelector('.flex-breakpoints-list');
-var addBreanpoint = document.querySelector('#addBreakpoint');
+var addBreakpointBtn = document.querySelector('#addBreakpoint');
+var generateCSS = document.querySelector('#generateCSS');
 
 var minColWidth = 200;
 var gridColGapValue = 16;
@@ -24,8 +25,6 @@ var flexBreakpoints = [
         numOfItems: 2
     }
 ];
-
-console.log(flexBreakpoints);
 
 // Asign default value for inputs
 minCol.value = minColWidth;
@@ -66,10 +65,56 @@ unifyGap.addEventListener('input', function () {
    }
 });
 
-addBreanpoint.addEventListener('click', function (e) {
+addBreakpointBtn.addEventListener('click', function (e) {
     e.preventDefault();
     var breakpoint = addBreakpoint();
     breakPointsList.appendChild(breakpoint);
+});
+
+generateCSS.addEventListener('click', function (e) {
+    e.preventDefault();
+    console.log("Min col width: " + minColWidth);
+    console.log("Grid col gap: " + gridColGapValue);
+    console.log("Grid row gap: " + gridRowGapValue);
+    console.log("--------")
+
+    for(var i = 0; i < flexBreakpoints.length; i++) {
+        console.log("Breakpoint " + (i+1));
+        console.log("Breakpoint from: " + flexBreakpoints[i].breakpointFrom + "px");
+        console.log("Num of items: " + flexBreakpoints[i].numOfItems);
+        console.log("--------")
+    }
+
+    var result = `
+        @mixin gridAuto() {
+            margin-left: -${gridColGapValue}px;
+
+            > * {
+                margin-bottom: ${gridRowGapValue}px;
+                padding-left: ${gridColGapValue}px;
+            }
+
+            @include mq($from: ${flexBreakpoints[0].breakpointFrom}px) {
+                > * {
+                    width: calc(99%/ #{${flexBreakpoints[0].numOfItems});
+                    flex: 0 0 calc(99% / #{${flexBreakpoints[0].numOfItems}});
+                }
+            }
+
+            @supports(grid-area: auto) {
+                grid-template-columns: repeat(auto-fit, minmax($min-width, 1fr));
+                margin-left: 0;
+
+                > * {
+                    width: auto;
+                    padding-left: 0;
+                    margin-bottom: 0;
+                }
+            }
+        }
+    `;
+
+    console.log(result);
 });
 
 generateGridItems();
