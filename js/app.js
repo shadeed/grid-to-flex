@@ -87,6 +87,15 @@ generateCSS.addEventListener('click', function (e) {
     var breakPointsList = [];
 
     var result1 = `
+@mixin grid() {
+    display: flex;
+    flex-wrap: wrap;
+
+    @supports(grid-area: auto) {
+        display: grid;
+        grid-gap: ${gridColGapValue}px ${gridRowGapValue}px;
+    }
+}
 @mixin gridAuto() {
         margin-left: -${gridColGapValue}px;
 
@@ -111,9 +120,7 @@ generateCSS.addEventListener('click', function (e) {
 
     var grid = `
     @supports(grid-area: auto) {
-        display: grid;
         grid-template-columns: repeat(auto-fit, minmax(${minColWidth}, 1fr));
-        grid-gap: ${gridColGapValue}px ${gridRowGapValue}px;
         margin-left: 0;
 
         > * {
@@ -126,8 +133,7 @@ generateCSS.addEventListener('click', function (e) {
 }`;
 
     console.log(result1 + "\n" 
-                + breakPointsList[0] + "\n" 
-                + breakPointsList[1] + "\n" 
+                + breakPointsList + "\n" 
                 + grid);
 });
 
