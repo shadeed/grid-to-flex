@@ -15,16 +15,9 @@ var gridRowGapValue = 16;
 var isUnify = false;
 
 // Flexbox breakpoints
-var flexBreakpoints = [
-    {
-        breakpointFrom: 700,
-        numOfItems: 3
-    },
-    {
-        breakpointFrom: 1000,
-        numOfItems: 2
-    }
-];
+var flexBreakpoints = [];
+
+var flexBreakpointsInfo = [];
 
 // Asign default value for inputs
 minCol.value = minColWidth;
@@ -73,48 +66,69 @@ addBreakpointBtn.addEventListener('click', function (e) {
 
 generateCSS.addEventListener('click', function (e) {
     e.preventDefault();
-    console.log("Min col width: " + minColWidth);
-    console.log("Grid col gap: " + gridColGapValue);
-    console.log("Grid row gap: " + gridRowGapValue);
-    console.log("--------")
+    // console.log("Min col width: " + minColWidth);
+    // console.log("Grid col gap: " + gridColGapValue);
+    // console.log("Grid row gap: " + gridRowGapValue);
+    // console.log("--------")
 
-    for(var i = 0; i < flexBreakpoints.length; i++) {
-        console.log("Breakpoint " + (i+1));
-        console.log("Breakpoint from: " + flexBreakpoints[i].breakpointFrom + "px");
-        console.log("Num of items: " + flexBreakpoints[i].numOfItems);
-        console.log("--------")
-    }
+    // for(var i = 0; i < flexBreakpoints.length; i++) {
+    //     console.log("Breakpoint " + (i+1));
+    //     console.log("Breakpoint from: " + flexBreakpoints[i].breakpointFrom + "px");
+    //     console.log("Num of items: " + flexBreakpoints[i].numOfItems);
+    //     console.log("--------")
+    // }
 
-    var result = `
-        @mixin gridAuto() {
-            margin-left: -${gridColGapValue}px;
+    getBreakpoints();
 
-            > * {
-                margin-bottom: ${gridRowGapValue}px;
-                padding-left: ${gridColGapValue}px;
-            }
+    console.log("Flex Breakpoints" + flexBreakpoints);
 
-            @include mq($from: ${flexBreakpoints[0].breakpointFrom}px) {
-                > * {
-                    width: calc(99%/ #{${flexBreakpoints[0].numOfItems});
-                    flex: 0 0 calc(99% / #{${flexBreakpoints[0].numOfItems}});
-                }
-            }
+    console.log("Flex Breakpoints IDs" + flexBreakpointsInfo);
 
-            @supports(grid-area: auto) {
-                grid-template-columns: repeat(auto-fit, minmax($min-width, 1fr));
-                margin-left: 0;
+    var breakPointsList = [];
 
-                > * {
-                    width: auto;
-                    padding-left: 0;
-                    margin-bottom: 0;
-                }
-            }
+    var result1 = `
+@mixin gridAuto() {
+        margin-left: -${gridColGapValue}px;
+
+        > * {
+            margin-bottom: ${gridRowGapValue}px;
+            padding-left: ${gridColGapValue}px;
         }
     `;
 
-    console.log(result);
+    for(var i = 0; i < flexBreakpoints.length; i++) {
+        var result2 = `
+    @include mq($from: ${flexBreakpoints[i].breakpointFrom}px) {
+        > * {
+            width: calc(99%/ #{${flexBreakpoints[i].numOfItems}});
+            flex: 0 0 calc(99% / #{${flexBreakpoints[i].numOfItems}});
+        }
+    }
+        `;
+
+        breakPointsList.push(result2);
+    }
+
+    var grid = `
+    @supports(grid-area: auto) {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(${minColWidth}, 1fr));
+        grid-gap: ${gridColGapValue}px ${gridRowGapValue}px;
+        margin-left: 0;
+
+        > * {
+            width: auto;
+            padding-left: 0;
+            margin-bottom: 0;
+        }
+    }
+
+}`;
+
+    console.log(result1 + "\n" 
+                + breakPointsList[0] + "\n" 
+                + breakPointsList[1] + "\n" 
+                + grid);
 });
 
 generateGridItems();
@@ -201,5 +215,28 @@ function addBreakpoint() {
     mainDiv.appendChild(bpTitle);
     mainDiv.appendChild(gridDiv);
 
+    flexBreakpointsInfo.push({
+        firstInput: firstInput.getAttribute('id'),
+        secondInput: secondInput.getAttribute('id')
+    });
+
     return mainDiv;
+}
+
+function getBreakpoints() {
+    for(var i = 0; i < flexBreakpointsInfo.length; i++) {
+        var fromWidthID = flexBreakpointsInfo[i].firstInput;
+        var numOfItemsID = flexBreakpointsInfo[i].secondInput;
+
+        console.log(fromWidthID);
+        console.log(numOfItemsID);
+
+        var fromWidthValue = document.querySelector("#"+fromWidthID).value;
+        var numOfItemsValue = document.querySelector("#"+numOfItemsID).value;
+
+        flexBreakpoints.push({
+            breakpointFrom: fromWidthValue,
+            numOfItems: numOfItemsValue
+        });
+    }
 }
