@@ -22,7 +22,7 @@ h2 {
 	font-size: 1.5rem;
 	font-weight: bold;
 	color: $color-primary;
-	margin-bottom: 1rem;
+	margin-bottom: 2rem;
 }
 
 h3 {
@@ -137,9 +137,46 @@ form {
 
 /* Flexbox Breapoints */
 .flex-breakpoints-item {
+	position: relative;
 	margin-bottom: 1.5rem;
 
-	button {
-		font-size: 14px;
+	h3 {
+		padding-left: 28px;
 	}
+
+	button { 
+		appearance: none;
+		position: absolute;
+		left: 0;  
+		top: 0; 
+		width: 20px; 
+		height: 20px; 
+		background: #bf3636 url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='100pt' height='100pt' version='1.1' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill ='%23fff' d='m32.699 66.699c0.54688 0.57422 1.3086 0.90234 2.1016 0.90234 0.77344-0.003906 1.5195-0.28906 2.0977-0.80078l13-12.602 12.602 13c0.49219 0.66016 1.2773 1.0352 2.1016 1 0.79297 0 1.5508-0.32422 2.0977-0.89844 1.1719-1.1406 1.2188-3.0078 0.10156-4.1992l-12.602-13 13-12.602c0.58984-0.53516 0.93359-1.2852 0.94922-2.0781 0.019531-0.79297-0.28516-1.5625-0.84766-2.1211-1.1406-1.1719-3.0078-1.2188-4.1992-0.10156l-13 12.602-12.602-13c-0.53516-0.58984-1.2852-0.93359-2.0781-0.94922-0.79297-0.019531-1.5625 0.28516-2.1211 0.84766-1.1719 1.1406-1.2188 3.0078-0.10156 4.1992l12.602 13-13 12.602c-0.58984 0.53516-0.93359 1.2852-0.94922 2.0781-0.019531 0.79297 0.28516 1.5625 0.84766 2.1211z'/%3E%3C/svg%3E%0A"); 
+		background-size: 20px;
+		background-position: center;
+		background-repeat: no-repeat;
+		color: #fff; 
+		border: 0; 
+		font-size: 0; 
+		border-radius: 50%; 
+		cursor: pointer; 
+	} 
+}
+
+.add-breakpoint {
+	appearance: none;
+	position: absolute;
+	right: 0;  
+	top: 0; 
+	width: 30px; 
+	height: 30px; 
+	background: $color-primary url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='100pt' height='100pt' version='1.1' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23fff' d='m75 43.75h-18.75v-18.75c0-3.75-2.5-6.25-6.25-6.25s-6.25 2.5-6.25 6.25v18.75h-18.75c-3.75 0-6.25 2.5-6.25 6.25s2.5 6.25 6.25 6.25h18.75v18.75c0 3.75 2.5 6.25 6.25 6.25s6.25-2.5 6.25-6.25v-18.75h18.75c3.75 0 6.25-2.5 6.25-6.25s-2.5-6.25-6.25-6.25z'/%3E%3C/svg%3E%0A");
+	background-size: 28px;
+	background-position: center;
+	background-repeat: no-repeat;
+	color: #fff; 
+	border: 0; 
+	font-size: 0; 
+	border-radius: 50%; 
+	cursor: pointer; 
 }
