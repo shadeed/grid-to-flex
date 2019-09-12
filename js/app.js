@@ -175,8 +175,9 @@ function addBreakpoint() {
     deleteBtn.innerHTML = "remove";
     deleteBtn.addEventListener('click', function(e){
         e.preventDefault();
-        console.log(`clicked #${listLength+1}`);
-        console.log(e.target.parentNode.parentNode.removeChild(e.target.parentNode));
+        e.target.parentNode.parentNode.removeChild(e.target.parentNode);
+        // Update the number, IDs of the breakpoints
+        updateBreakpoints();
     });
 
     var bpTitle = document.createElement('h3');
@@ -230,6 +231,28 @@ function addBreakpoint() {
     });
 
     return mainDiv;
+}
+
+function updateBreakpoints() {
+    var listLength = breakPointsList.children.length;
+    var breakpointsItem = document.querySelectorAll('.flex-breakpoints-item');
+
+    for(var i = 0; i < listLength; i++) {
+        var breakpointsTitle = breakpointsItem[i].querySelector('h3');
+        breakpointsTitle.innerHTML = `Breakpoint ${i+1}`;
+
+        var breakpointsFirstLabel = breakpointsItem[i].querySelector('.o-grid--2 > div:first-child label');
+        var breakpointsFirstInput = breakpointsItem[i].querySelector('.o-grid--2 > div:first-child input');
+
+        breakpointsFirstLabel.setAttribute("for", `fromWidth-${i+1}`);
+        breakpointsFirstInput.setAttribute("id", `fromWidth-${i+1}`);
+
+        var breakpointsSecondLabel = breakpointsItem[i].querySelector('.o-grid--2 > div:last-child label');
+        var breakpointsSecondInput = breakpointsItem[i].querySelector('.o-grid--2 > div:last-child input');
+
+        breakpointsSecondLabel.setAttribute("for", `itemsToShow-${i+1}`);
+        breakpointsSecondInput.setAttribute("id", `itemsToShow-${i+1}`);
+    }
 }
 
 function getBreakpoints() {
