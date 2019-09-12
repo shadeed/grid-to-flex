@@ -132,9 +132,7 @@ generateCSS.addEventListener('click', function (e) {
 
 }`;
 
-    console.log(result1 + "\n" 
-                + breakPointsList + "\n" 
-                + grid);
+    console.log(result1 + "\n" + breakPointsList + "\n" + grid);
 });
 
 generateGridItems();
@@ -175,6 +173,11 @@ function addBreakpoint() {
 
     var deleteBtn = document.createElement('button');
     deleteBtn.innerHTML = "remove";
+    deleteBtn.addEventListener('click', function(e){
+        e.preventDefault();
+        console.log(`clicked #${listLength+1}`);
+        console.log(e.target.parentNode.parentNode.removeChild(e.target.parentNode));
+    });
 
     var bpTitle = document.createElement('h3');
     bpTitle.innerHTML = `Breakpoint ${listLength+1}`;
