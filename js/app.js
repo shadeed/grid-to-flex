@@ -132,7 +132,25 @@ generateCSS.addEventListener('click', function (e) {
 
 }`;
 
-    console.log(result1 + "\n" + breakPointsList + "\n" + grid);
+    var resultModal = document.querySelector('#resultModal');
+    var modalBody = document.querySelector('#modalBody');
+    var resultCode = document.querySelector('#resultCode');
+
+    var code = result1 + "\n" + breakPointsList + "\n" + grid;
+
+    resultCode.innerHTML = code;
+
+    resultModal.classList.add('is-active');
+
+    document.addEventListener('click', function(event) {
+        var isClickInside = modalBody.contains(event.target);
+
+        if (!isClickInside) {
+            console.log('click outside');
+        }
+    });
+
+    //console.log(result1 + "\n" + breakPointsList + "\n" + grid);
 });
 
 generateGridItems();
@@ -198,6 +216,7 @@ function addBreakpoint() {
     firstInput.setAttribute('type', 'number');
     firstInput.setAttribute('id', `fromWidth-${listLength+1}`);
     firstInput.setAttribute('placeholder', 'e.g: 500px');
+    firstInput.setAttribute('required', '');
 
     var secondInputDiv = document.createElement('div');
 
@@ -211,6 +230,7 @@ function addBreakpoint() {
     secondInput.setAttribute('type', 'number');
     secondInput.setAttribute('id', `itemsToShow-${listLength+1}`);
     secondInput.setAttribute('placeholder', 'e.g: 3');
+    secondInput.setAttribute('required', '');
 
     firstInputDiv.appendChild(firstInputLabel);
     firstInputDiv.appendChild(firstInput);

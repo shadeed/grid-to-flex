@@ -480,3 +480,38 @@ form > p {
   font-size: 0;
   border-radius: 50%;
   cursor: pointer; }
+
+.c-modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  animation: opacity 0.5s ease-out forwards;
+  display: none; }
+  .c-modal.is-active {
+    display: block; }
+
+.c-modal__content {
+  position: absolute;
+  top: 4rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(30px);
+  width: 550px;
+  height: 400px;
+  padding: 1rem;
+  background: #fff;
+  border-radius: 5px;
+  overflow-y: scroll;
+  animation: transform 0.3s 0.15s ease-out forwards; }
+
+@keyframes opacity {
+  to {
+    opacity: 1; } }
+
+@keyframes transform {
+  to {
+    transform: translateX(-50%) translateY(0); } }
