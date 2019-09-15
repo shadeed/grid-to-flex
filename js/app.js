@@ -254,12 +254,22 @@ function addBreakpoint() {
         secondInput: secondInput.getAttribute('id')
     });
 
+    if(flexBreakpointsInfo.length > 0) {
+        generateCSS.removeAttribute('disabled');
+    }
+
     return mainDiv;
 }
 
 function updateBreakpoints() {
     var listLength = breakPointsList.children.length;
     var breakpointsItem = document.querySelectorAll('.flex-breakpoints-item');
+
+    if(listLength > 0) {
+        generateCSS.removeAttribute('disabled');
+    } else {
+        generateCSS.setAttribute('disabled', '');
+    }
 
     for(var i = 0; i < listLength; i++) {
         var breakpointsTitle = breakpointsItem[i].querySelector('h3');

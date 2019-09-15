@@ -403,6 +403,10 @@ form > p {
   fill: #fff;
   margin-right: 4px; }
 
+.c-button[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed; }
+
 .c-header {
   position: relative;
   display: flex;
