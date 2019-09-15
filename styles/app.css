@@ -358,6 +358,11 @@ h3 {
   font-size: 1.25rem;
   margin-bottom: 0.5rem; }
 
+button:focus,
+input[type="checkbox"]:focus {
+  outline: dashed 3px grey;
+  outline-offset: 4px; }
+
 .c-form__item {
   margin-bottom: 1rem; }
 
@@ -409,14 +414,18 @@ form > p {
 
 .c-header {
   position: relative;
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-gap: 1rem;
   color: #fff;
   background: #3863D9;
   padding: 1rem;
   box-shadow: 0 3px 30px 0 rgba(0, 0, 0, 0.4); }
   .c-header a {
     color: inherit; }
+  @media (min-width: 1000px) {
+    .c-header {
+      display: flex;
+      justify-content: space-between; } }
 
 .c-page-title {
   font-size: 1.5rem;
@@ -424,9 +433,11 @@ form > p {
   margin-bottom: 0.5rem; }
 
 .wrapper {
-  flex-grow: 1;
-  display: grid;
-  grid-template-columns: 320px 1fr; }
+  flex-grow: 1; }
+  @media (min-width: 1000px) {
+    .wrapper {
+      display: grid;
+      grid-template-columns: 320px 1fr; } }
 
 .o-grid--2 {
   display: grid;

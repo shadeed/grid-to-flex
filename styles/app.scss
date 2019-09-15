@@ -30,6 +30,12 @@ h3 {
 	margin-bottom: 0.5rem;
 }
 
+button:focus,
+input[type="checkbox"]:focus {
+	outline: dashed 3px grey;
+	outline-offset: 4px;
+}
+
 .c-form__item {
 	margin-bottom: 1rem;
 }
@@ -96,8 +102,8 @@ form {
 
 .c-header {
 	position: relative;
-	display: flex;
-	justify-content: space-between;
+	display: grid;
+	grid-gap: 1rem;
 	color: #fff;
 	background: $color-primary;
 	padding: 1rem;
@@ -105,6 +111,11 @@ form {
 
 	a {
 		color: inherit;
+	}
+
+	@media (min-width: 1000px) {
+		display: flex;
+		justify-content: space-between;
 	}
 }
 
@@ -116,8 +127,12 @@ form {
 
 .wrapper {
 	flex-grow: 1;
-	display: grid;
-	grid-template-columns: 320px 1fr;
+	
+
+	@media (min-width: 1000px) {
+		display: grid;
+		grid-template-columns: 320px 1fr;
+	}
 }
 
 .o-grid--2 {
