@@ -63,7 +63,13 @@
 
                 <button id="generateCSS" class="c-button">Generate CSS</button>
 
-                <p><br> <br> RTL spacing</p>
+                <h3 style="margin-top: 15px;">Todo</h3>
+                <ul style="line-height: 1.5;">
+                    <li>RTL Spacing</li>
+                    <li>Keyboard usage</li>
+                    <li>OOP JS</li>
+                    <li>Responsive design</li>
+                </ul>
             </form>
         </aside>
         <main class="c-main">
@@ -86,7 +92,19 @@
 
     <div id="resultModal" class="c-modal">
         <div id="modalBody" class="c-modal__content">
-            <pre id="resultCode"></pre>
+            <button id="close" class="c-modal__close" aria-label="Close Modal">
+                <svg width="100pt" height="100pt" viewBox="0 0 100 100">
+                    <path d="M55.891 50l17.68 17.676c1.6289 1.6289 1.6289 4.2656 0 5.8945-1.6289 1.6289-4.2656 1.6289-5.8945 0l-17.676-17.68-17.676 17.68c-1.6289 1.6289-4.2656 1.6289-5.8945 0-1.6289-1.6289-1.6289-4.2656 0-5.8945L44.11 50 26.43 32.324c-1.6289-1.6289-1.6289-4.2656 0-5.8945 1.6289-1.6289 4.2656-1.6289 5.8945 0l17.676 17.68 17.676-17.68c1.6289-1.6289 4.2656-1.6289 5.8945 0 1.6289 1.6289 1.6289 4.2656 0 5.8945z" fill-rule="evenodd"/>
+                </svg>
+            </button>
+            <button id="copyCSS" class="c-button c-button--with-icon">
+                <svg viewBox="0 0 46 46">
+                    <path d="M42 0H11C8.8 0 7 1.8 7 4v3H4c-2.2 0-4 1.8-4 4v31c0 2.2 1.8 4 4 4h31c2.2 0 4-1.8 4-4v-3h3c2.2 0 4-1.8 4-4V4c0-2.2-1.8-4-4-4zm-7 42H4V11h3v24c0 2.2 1.8 4 4 4h24v3zm-24-7V4h31v31H11z"/>
+                </svg>
+                Copy Code
+            </button>
+            <pre ></pre>
+            <textarea id="resultCode"></textarea>
         </div>
     </div>
 

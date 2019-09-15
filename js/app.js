@@ -86,8 +86,7 @@ generateCSS.addEventListener('click', function (e) {
 
     var breakPointsList = [];
 
-    var result1 = `
-@mixin grid() {
+    var result1 = `@mixin grid() {
     display: flex;
     flex-wrap: wrap;
 
@@ -135,6 +134,8 @@ generateCSS.addEventListener('click', function (e) {
     var resultModal = document.querySelector('#resultModal');
     var modalBody = document.querySelector('#modalBody');
     var resultCode = document.querySelector('#resultCode');
+    var copyCSS = document.querySelector('#copyCSS');
+    var closeModal = document.querySelector('#close');
 
     var code = result1 + "\n" + breakPointsList + "\n" + grid;
 
@@ -142,12 +143,15 @@ generateCSS.addEventListener('click', function (e) {
 
     resultModal.classList.add('is-active');
 
-    document.addEventListener('click', function(event) {
-        var isClickInside = modalBody.contains(event.target);
+    copyCSS.addEventListener('click', function(e){
+        e.preventDefault();
+        resultCode.select();
+        document.execCommand("copy");
+    });
 
-        if (!isClickInside) {
-            console.log('click outside');
-        }
+    closeModal.addEventListener('click', function(e){
+        e.preventDefault();
+        resultModal.classList.remove('is-active');
     });
 
     //console.log(result1 + "\n" + breakPointsList + "\n" + grid);
