@@ -213,7 +213,7 @@ function addBreakpoint() {
     var firstInputLabel = document.createElement('label');
     firstInputLabel.classList.add('c-label');
     firstInputLabel.setAttribute('for', `fromWidth-${listLength+1}`);
-    firstInputLabel.innerHTML = "From Width";
+    firstInputLabel.innerHTML = "Min MQ Width";
 
     var firstInput = document.createElement('input');
     firstInput.classList.add('c-input');
