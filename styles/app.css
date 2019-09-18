@@ -412,6 +412,14 @@ form > p {
   opacity: 0.5;
   cursor: not-allowed; }
 
+.c-button--secondary {
+  background: transparent;
+  color: #000;
+  border: 2px solid #3863D9; }
+  .c-button--secondary:hover {
+    color: #fff;
+    border-color: #244cba; }
+
 .c-header {
   position: relative;
   display: grid;
@@ -502,7 +510,12 @@ form > p {
   border: 0;
   font-size: 0;
   border-radius: 50%;
-  cursor: pointer; }
+  cursor: pointer;
+  transition: 0.2s ease-out; }
+  .add-breakpoint:hover {
+    background-color: #244cba;
+    transform: scale(1.1);
+    box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.25); }
 
 .c-modal {
   position: fixed;
