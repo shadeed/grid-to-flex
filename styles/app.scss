@@ -100,6 +100,17 @@ form {
 	cursor: not-allowed;
 }
 
+.c-button--secondary {
+	background: transparent;
+	color: #000;
+	border: 2px solid $color-primary;
+
+	&:hover {
+		color: #fff;
+		border-color: darken($color-primary, 10%);
+	}
+}
+
 .c-header {
 	position: relative;
 	display: grid;
@@ -209,7 +220,14 @@ form {
 	border: 0; 
 	font-size: 0; 
 	border-radius: 50%; 
-	cursor: pointer; 
+	cursor: pointer;
+	transition: 0.2s ease-out;
+
+	&:hover {
+		background-color: darken($color-primary, 10%);
+		transform: scale(1.1);
+		box-shadow: 0 3px 10px 0 rgba(#000, 0.25);
+	}
 }
 
 // Modal

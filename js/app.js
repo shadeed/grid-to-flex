@@ -195,6 +195,7 @@ function addBreakpoint() {
 
     var deleteBtn = document.createElement('button');
     deleteBtn.innerHTML = "remove";
+    deleteBtn.setAttribute('aria-label', 'Remove Breakpoint');
     deleteBtn.addEventListener('click', function(e){
         e.preventDefault();
         e.target.parentNode.parentNode.removeChild(e.target.parentNode);
