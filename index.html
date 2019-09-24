@@ -65,7 +65,7 @@
 
                 <hr style="margin-bottom: 20px;">
 
-                <button id="generateCSS" class="c-button" disabled>Generate CSS</button>
+                <button id="generateCSS" class="c-button" disabled>Generate SCSS</button>
 
                 <!-- <div class="o-grid o-grid--2">
                     <button id="generateCSS" class="c-button" disabled>Generate CSS</button>
@@ -82,6 +82,12 @@
             </form>
         </aside>
         <main class="c-main">
+            <p style="text-align: center; margin: 1rem auto 2rem;">The tool will create a fallback code using Flexbox for the following layout. The following layout is being controled with CSS Grid.</p>
+            <pre>
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                grid-gap: 16px;
+            </pre>
             <div class="js-grid">
                 <div class="js-grid-item"></div>
                 <div class="js-grid-item"></div>

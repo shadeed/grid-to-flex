@@ -106,7 +106,7 @@ generateCSS.addEventListener('click', function (e) {
 
     for(var i = 0; i < flexBreakpoints.length; i++) {
         var result2 = `
-    @include mq($from: ${flexBreakpoints[i].breakpointFrom}px) {
+    @media (min-width: ${flexBreakpoints[i].breakpointFrom}px) {
         > * {
             width: calc(99%/ #{${flexBreakpoints[i].numOfItems}});
             flex: 0 0 calc(99% / #{${flexBreakpoints[i].numOfItems}});
@@ -214,7 +214,7 @@ function addBreakpoint() {
     var firstInputLabel = document.createElement('label');
     firstInputLabel.classList.add('c-label');
     firstInputLabel.setAttribute('for', `fromWidth-${listLength+1}`);
-    firstInputLabel.innerHTML = "Min MQ Width";
+    firstInputLabel.innerHTML = "Min Width";
 
     var firstInput = document.createElement('input');
     firstInput.classList.add('c-input');
@@ -228,7 +228,7 @@ function addBreakpoint() {
     var secondInputLabel = document.createElement('label');
     secondInputLabel.classList.add('c-label');
     secondInputLabel.setAttribute('for', `itemsToShow-${listLength+1}`);
-    secondInputLabel.innerHTML = "Number of items";
+    secondInputLabel.innerHTML = "Items";
 
     var secondInput = document.createElement('input');
     secondInput.classList.add('c-input');
