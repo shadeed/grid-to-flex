@@ -184,7 +184,7 @@ function generateGridItems() {
     }
 
     var prevCode = "display: grid \n" + "grid-template-columns: "+
-    `repeat(auto-fit, minmax(${minColWidth}px, 1fr))` + "\n" + `grid-gap: ${gridRowGapValue}px ${gridColGapValue}px`;
+    `repeat(auto-fit, minmax(<span>${minColWidth}px</span>, 1fr))` + "\n" + `grid-gap: <span>${gridRowGapValue}px ${gridColGapValue}px</span>;`;
 
     document.querySelector('#gridCodePreview').innerHTML = prevCode;
 

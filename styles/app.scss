@@ -177,6 +177,29 @@ form {
 	min-height: 160px;
 }
 
+#gridCodePreview {
+	max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
+    background: #292929;
+    padding: 0.65rem;
+
+    span {
+    	background: $color-primary;
+    	color: #fff;
+    	opacity: 0;
+    	padding: 3px 5px;
+    	border-radius: 5px;
+    	animation: showFull 0.5s linear forwards;
+    }
+}
+
+@keyframes showFull {
+	to {
+		opacity: 1;
+	}
+}
+
 /* Flexbox Breapoints */
 .flex-breakpoints-item {
 	position: relative;
