@@ -182,6 +182,12 @@ function generateGridItems() {
         gridColGap.value = gridColGapValue;
         gridRowGap.value = gridRowGapValue;
     }
+
+    var prevCode = "display: grid \n" + "grid-template-columns: "+
+    `repeat(auto-fit, minmax(${minColWidth}px, 1fr))` + "\n" + `grid-gap: ${gridRowGapValue}px ${gridColGapValue}px`;
+
+    document.querySelector('#gridCodePreview').innerHTML = prevCode;
+
     gridWrapper.style.gridTemplateColumns = `repeat(auto-fit, minmax(${minColWidth}px, 1fr))`;
     gridWrapper.style.gridColumnGap = `${gridColGapValue}px`;
     gridWrapper.style.gridRowGap = `${gridRowGapValue}px`;
