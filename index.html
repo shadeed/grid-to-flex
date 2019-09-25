@@ -25,18 +25,19 @@
     <div class="wrapper">
         <aside class="c-sidebar">
             <form class="c-form" action="submit">
-                <div class="c-form__item">
-                    <label class="c-label" for="itemWidth">Min Item Width</label>
-                    <input class="c-input" type="number" min="0" step="20" id="itemWidth" placeholder="e.g: 200px" pattern="\d*">
-                </div>
-                <div class="c-form__item o-grid--2">
+                
+                <div class="c-form__wrapper">
+                    <div class="c-form__item">
+                        <label class="c-label" for="itemWidth">Min Item Width</label>
+                        <input class="c-input" type="number" min="0" step="20" id="itemWidth" placeholder="e.g: 200px" pattern="\d*">
+                    </div>
                     <div>
-                        <label class="c-label" for="gridColGap">Grid Column Gap</label>
+                        <label class="c-label" for="gridColGap">Col Gap</label>
                         <input class="c-input" type="number" min="0" step="4" id="gridColGap" placeholder="e.g: 10px">
                     </div>
 
                     <div>
-                        <label class="c-label" for="gridRowGap">Grid Row Gap</label>
+                        <label class="c-label" for="gridRowGap">Row Gap</label>
                         <input class="c-input" type="number" min="0" step="4" id="gridRowGap" placeholder="e.g: 10px">
                     </div>
                 </div>
@@ -47,7 +48,7 @@
                 </div>
 
                 <div style="position: relative;">
-                    <h2 style="margin-bottom: 1rem;">Flex Breakpoints</h2>
+                    <h2 style="margin-bottom: 1rem; font-size: 1.25rem;">Flex Breakpoints</h2>
                     <button id="addBreakpoint" class="add-breakpoint">Add breakpoint</button>
 
                     <div class="flex-breakpoints">

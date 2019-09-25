@@ -24,17 +24,24 @@ for(var i = 0; i < 3; i++) {
     var breakpoint = addBreakpoint(i);
     console.log(breakpoint);
     var breakpointTitle = breakpoint.querySelector('h3');
+    var inputs = breakpoint.querySelectorAll('input');
 
     breakPointsList.appendChild(breakpoint);
 
     if(i === 0) {
-        breakpointTitle.innerHTML = "small";
+        breakpointTitle.innerHTML = "Small";
+        inputs[0].value = "320";
+        inputs[1].value = "2";
     }
     if(i === 1) {
-        breakpointTitle.innerHTML = "medium";
+        breakpointTitle.innerHTML = "Medium";
+        inputs[0].value = "768";
+        inputs[1].value = "3";
     }
     if(i === 2) {
-        breakpointTitle.innerHTML = "large";
+        breakpointTitle.innerHTML = "Large";
+        inputs[0].value = "1024";
+        inputs[1].value = "4";
     }
 }
 
@@ -202,8 +209,8 @@ function generateGridItems() {
         gridRowGap.value = gridRowGapValue;
     }
 
-    var prevCode = "display: grid \n" + "grid-template-columns: "+
-    `repeat(auto-fit, minmax(<span>${minColWidth}px</span>, 1fr))` + "\n" + `grid-gap: <span>${gridRowGapValue}px ${gridColGapValue}px</span>;`;
+    var prevCode = "display: grid; \n" + "grid-template-columns: "+
+    `repeat(auto-fit, minmax(<span>${minColWidth}px</span>, 1fr));` + "\n" + `grid-gap: <span>${gridRowGapValue}px ${gridColGapValue}px</span>;`;
 
     document.querySelector('#gridCodePreview').innerHTML = prevCode;
 
