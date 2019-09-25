@@ -191,13 +191,28 @@ form {
 	min-height: 160px;
 }
 
+.s-content {
+	max-width: 95%;
+	margin: 0 auto 1rem;
+
+	h3 {
+		font-weight: bold;
+	}
+
+	p {
+		max-width: 800px;
+		line-height: 1.45;
+	}
+}
+
 #gridCodePreview {
-	max-width: 700px;
-    margin: 0 auto;
+	max-width: 95%;
+	margin: 0 auto;
     line-height: 1.6;
     background: #292929;
     border-radius: 5px;
     padding: 0.65rem;
+    overflow-x: scroll;
 
     span {
     	background: $color-primary;

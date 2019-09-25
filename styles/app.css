@@ -483,13 +483,23 @@ form > p {
   border-radius: 5px;
   min-height: 160px; }
 
+.s-content {
+  max-width: 95%;
+  margin: 0 auto 1rem; }
+  .s-content h3 {
+    font-weight: bold; }
+  .s-content p {
+    max-width: 800px;
+    line-height: 1.45; }
+
 #gridCodePreview {
-  max-width: 700px;
+  max-width: 95%;
   margin: 0 auto;
   line-height: 1.6;
   background: #292929;
   border-radius: 5px;
-  padding: 0.65rem; }
+  padding: 0.65rem;
+  overflow-x: scroll; }
   #gridCodePreview span {
     background: #3863D9;
     color: #fff;
