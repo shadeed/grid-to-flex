@@ -53,8 +53,8 @@ input[type="checkbox"]:focus {
 	font-size: 16px;
 	color: $color-primary;
 	padding: 0.65rem 0.5rem;
-	border: 2px solid #c6c6c6;
-	border-radius: 4px;
+	border: 1px solid #afafaf;
+	border-radius: 5px;
 	transition: 0.2s ease-out;
 
 	&:focus {
@@ -142,7 +142,7 @@ form {
 .c-page-title {
 	font-size: 1.5rem;
 	font-weight: bold;
-	margin-bottom: 0.5rem;
+	//margin-bottom: 0.5rem;
 }
 
 .wrapper {
@@ -162,7 +162,7 @@ form {
 }
 
 .c-sidebar {
-	background: #ebebeb;
+	background: #fff;
 	padding: 1rem;
 }
 
@@ -187,6 +187,7 @@ form {
 .js-grid-item {
 	background: rgba(#fff, 0.06);
 	border: 2px dashed #707070;
+	border-radius: 5px;
 	min-height: 160px;
 }
 
@@ -195,6 +196,7 @@ form {
     margin: 0 auto;
     line-height: 1.6;
     background: #292929;
+    border-radius: 5px;
     padding: 0.65rem;
 
     span {

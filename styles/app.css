@@ -378,8 +378,8 @@ input[type="checkbox"]:focus {
   font-size: 16px;
   color: #3863D9;
   padding: 0.65rem 0.5rem;
-  border: 2px solid #c6c6c6;
-  border-radius: 4px;
+  border: 1px solid #afafaf;
+  border-radius: 5px;
   transition: 0.2s ease-out; }
   .c-input:not([type="checkbox"]):focus {
     border-color: #3863D9;
@@ -445,8 +445,7 @@ form > p {
 
 .c-page-title {
   font-size: 1.5rem;
-  font-weight: bold;
-  margin-bottom: 0.5rem; }
+  font-weight: bold; }
 
 .wrapper {
   flex-grow: 1; }
@@ -461,7 +460,7 @@ form > p {
   grid-gap: 1rem; }
 
 .c-sidebar {
-  background: #ebebeb;
+  background: #fff;
   padding: 1rem; }
 
 .c-main {
@@ -481,6 +480,7 @@ form > p {
 .js-grid-item {
   background: rgba(255, 255, 255, 0.06);
   border: 2px dashed #707070;
+  border-radius: 5px;
   min-height: 160px; }
 
 #gridCodePreview {
@@ -488,6 +488,7 @@ form > p {
   margin: 0 auto;
   line-height: 1.6;
   background: #292929;
+  border-radius: 5px;
   padding: 0.65rem; }
   #gridCodePreview span {
     background: #3863D9;
