@@ -491,6 +491,12 @@ form > p {
   .s-content p {
     max-width: 800px;
     line-height: 1.45; }
+  .s-content svg {
+    fill: #fff;
+    display: inline-block;
+    vertical-align: middle;
+    width: 24px;
+    height: 24px; }
 
 #gridCodePreview {
   max-width: 95%;
