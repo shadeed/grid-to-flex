@@ -337,8 +337,7 @@ function updateBreakpoints() {
 }
 
 function getBreakpoints() {
-    console.log("TesttttT:" + flexBreakpointsInfo.length);
-
+    // Emptying the array to avoid making it larger in case generateCSS clicked multiple times.
     flexBreakpoints = [];
 
     for(var i = 0; i < flexBreakpointsInfo.length; i++) {
