@@ -118,17 +118,20 @@ generateCSS.addEventListener('click', function (e) {
         }
     `;
 
-    for(var i = 0; i < flexBreakpoints.length; i++) {
-        var result2 = `
-    @media (min-width: ${flexBreakpoints[i].breakpointFrom}px) {
-        > * {
-            width: calc((99%/ #{${flexBreakpoints[i].numOfItems}}) - ${gridColGapValue}px);
-            flex: 0 0 calc((99% / #{${flexBreakpoints[i].numOfItems}}) - ${gridColGapValue}px);
-        }
-    }
-        `;
 
-        breakPointsList.push(result2);
+    for(var i = 0; i < flexBreakpoints.length; i++) {
+        if(flexBreakpoints[i].breakpointFrom != "") {
+            var result2 = `
+            @media (min-width: ${flexBreakpoints[i].breakpointFrom}px) {
+                > * {
+                    width: calc((99%/ #{${flexBreakpoints[i].numOfItems}}) - ${gridColGapValue}px);
+                    flex: 0 0 calc((99% / #{${flexBreakpoints[i].numOfItems}}) - ${gridColGapValue}px);
+                }
+            }
+                `;
+
+            breakPointsList.push(result2);
+        }
     }
 
     var grid = `
