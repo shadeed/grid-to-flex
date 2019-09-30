@@ -2,6 +2,8 @@
 
 CSS Grid minmax function is used to dynamically make a responsive layout with a specificed item width. On the left side, you can control the minimum width and spacing between grid items.
 
+Check it out: [shadeed.github.io/grid-to-flex/](shadeed.github.io/grid-to-flex/)
+
 Then, you can edit or add Flexbox breakpoints. Once that is done, click on Generate SCSS to get the ready to use Sass code.
 
 ## Generated Code
