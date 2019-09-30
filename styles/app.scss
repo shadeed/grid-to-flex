@@ -325,6 +325,10 @@ form {
 	border-radius: 5px;
 	animation: transform 0.3s 0.025s ease-out forwards;
 
+	@media (max-width: 700px) {
+		max-width: 85%;
+	}
+
 	textarea {
 		appearance: none;
 		user-select: none;

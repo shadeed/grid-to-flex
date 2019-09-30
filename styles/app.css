@@ -590,6 +590,9 @@ form > p {
   background: #fff;
   border-radius: 5px;
   animation: transform 0.3s 0.025s ease-out forwards; }
+  @media (max-width: 700px) {
+    .c-modal__content {
+      max-width: 85%; } }
   .c-modal__content textarea {
     appearance: none;
     user-select: none;
