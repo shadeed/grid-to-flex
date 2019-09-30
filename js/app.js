@@ -114,7 +114,7 @@ generateCSS.addEventListener('click', function (e) {
 
         > * {
             margin-bottom: ${gridRowGapValue}px;
-            padding-left: ${gridColGapValue}px;
+            margin-left: ${gridColGapValue}px;
         }
     `;
 
@@ -122,8 +122,8 @@ generateCSS.addEventListener('click', function (e) {
         var result2 = `
     @media (min-width: ${flexBreakpoints[i].breakpointFrom}px) {
         > * {
-            width: calc(99%/ #{${flexBreakpoints[i].numOfItems}});
-            flex: 0 0 calc(99% / #{${flexBreakpoints[i].numOfItems}});
+            width: calc((99%/ #{${flexBreakpoints[i].numOfItems}}) - ${gridColGapValue}px);
+            flex: 0 0 calc((99% / #{${flexBreakpoints[i].numOfItems}}) - ${gridColGapValue}px);
         }
     }
         `;
@@ -138,7 +138,7 @@ generateCSS.addEventListener('click', function (e) {
 
         > * {
             width: auto;
-            padding-left: 0;
+            margin-left: 0;
             margin-bottom: 0;
         }
     }
