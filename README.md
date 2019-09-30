@@ -4,6 +4,8 @@ CSS Grid minmax function is used to dynamically make a responsive layout with a 
 
 Check it out: [shadeed.github.io/grid-to-flex/](http://shadeed.github.io/grid-to-flex/)
 
+[Codepen Demo](https://codepen.io/shadeed/pen/XWrLmYe)
+
 Then, you can edit or add Flexbox breakpoints. Once that is done, click on Generate SCSS to get the ready to use Sass code.
 
 ## Generated Code
