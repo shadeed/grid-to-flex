@@ -120,7 +120,7 @@ generateCSS.addEventListener('click', function (e) {
 
 
     for(var i = 0; i < flexBreakpoints.length; i++) {
-        if(flexBreakpoints[i].breakpointFrom != "") {
+        if(flexBreakpoints[i].breakpointFrom != "" && flexBreakpoints[i].numOfItems != "") {
             var result2 = `
             @media (min-width: ${flexBreakpoints[i].breakpointFrom}px) {
                 > * {
