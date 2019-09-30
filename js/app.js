@@ -133,7 +133,7 @@ generateCSS.addEventListener('click', function (e) {
 
     var grid = `
     @supports(grid-area: auto) {
-        grid-template-columns: repeat(auto-fit, minmax(${minColWidth}, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(${minColWidth}px, 1fr));
         margin-left: 0;
 
         > * {
