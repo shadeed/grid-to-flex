@@ -22,7 +22,7 @@ var flexBreakpointsInfo = [];
 // Add three breakpoints by default
 for(var i = 0; i < 3; i++) {
     var breakpoint = addBreakpoint(i);
-    console.log(breakpoint);
+    //console.log(breakpoint);
     var breakpointTitle = breakpoint.querySelector('h3');
     var inputs = breakpoint.querySelectorAll('input');
 
@@ -92,23 +92,11 @@ addBreakpointBtn.addEventListener('click', function (e) {
 
 generateCSS.addEventListener('click', function (e) {
     e.preventDefault();
-    // console.log("Min col width: " + minColWidth);
-    // console.log("Grid col gap: " + gridColGapValue);
-    // console.log("Grid row gap: " + gridRowGapValue);
-    // console.log("--------")
-
-    // for(var i = 0; i < flexBreakpoints.length; i++) {
-    //     console.log("Breakpoint " + (i+1));
-    //     console.log("Breakpoint from: " + flexBreakpoints[i].breakpointFrom + "px");
-    //     console.log("Num of items: " + flexBreakpoints[i].numOfItems);
-    //     console.log("--------")
-    // }
-
     getBreakpoints();
 
-    console.log("Flex Breakpoints" + flexBreakpoints);
+    //console.log("Flex Breakpoints" + flexBreakpoints);
 
-    console.log("Flex Breakpoints IDs" + flexBreakpointsInfo);
+    //console.log("Flex Breakpoints IDs" + flexBreakpointsInfo);
 
     var breakPointsList = [];
 
@@ -231,9 +219,35 @@ function addBreakpoint(defaultLength = 0) {
     deleteBtn.addEventListener('click', function(e){
         e.preventDefault();
         e.target.parentNode.parentNode.removeChild(e.target.parentNode);
+
         // Update the number, IDs of the breakpoints
         updateBreakpoints();
+
+        var parentElm = e.target.parentNode;
+        var parentLabel = parentElm.querySelector('.c-label');
+        var labelFor = parentLabel.getAttribute('for');
+        var index = parseInt(labelFor.replace(/[^0-9]/g, ''), 10);
+        
+        flexBreakpointsInfo.splice(index-1, 1);
+
+        // Rename the array IDs to match the inputs
+        renameFlexbreakpointsInfo(flexBreakpointsInfo.length);
+
+        console.log(flexBreakpointsInfo);
     });
+
+    function renameFlexbreakpointsInfo(arrayLength) {
+        flexBreakpointsInfo = [];
+
+        console.log(arrayLength);
+
+        for (var i = 0; i < arrayLength; i++) {
+            flexBreakpointsInfo.push({
+                firstInput: `fromWidth-${i+1}`,
+                secondInput: `itemsToShow-${i+1}`
+            });
+        }
+    }
 
     var bpTitle = document.createElement('h3');
     bpTitle.innerHTML = `Breakpoint ${listLength+1}`;
@@ -323,12 +337,16 @@ function updateBreakpoints() {
 }
 
 function getBreakpoints() {
+    console.log("TesttttT:" + flexBreakpointsInfo.length);
+
+    flexBreakpoints = [];
+
     for(var i = 0; i < flexBreakpointsInfo.length; i++) {
         var fromWidthID = flexBreakpointsInfo[i].firstInput;
         var numOfItemsID = flexBreakpointsInfo[i].secondInput;
 
-        console.log(fromWidthID);
-        console.log(numOfItemsID);
+        //console.log(fromWidthID);
+        //console.log(numOfItemsID);
 
         var fromWidthValue = document.querySelector("#"+fromWidthID).value;
         var numOfItemsValue = document.querySelector("#"+numOfItemsID).value;
