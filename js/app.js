@@ -128,7 +128,7 @@ generateCSS.addEventListener('click', function (e) {
                     flex: 0 0 calc((99% / #{${flexBreakpoints[i].numOfItems}}) - ${gridColGapValue}px);
                 }
             }
-                `;
+        `;
 
             breakPointsList.push(result2);
         }
@@ -154,7 +154,7 @@ generateCSS.addEventListener('click', function (e) {
     var copyCSS = document.querySelector('#copyCSS');
     var closeModal = document.querySelector('#close');
 
-    var code = result1 + "\n" + breakPointsList + "\n" + grid;
+    var code = result1 + "\n" + breakPointsList.join("\n") + "\n" + grid;
 
     resultCode.innerHTML = code;
 
