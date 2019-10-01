@@ -1,6 +1,6 @@
 # Grid to flex
 
-![](http://shadeed.github.io/grid-to-flex/img/screenshot.png)
+![""](img/screenshot.png)
 
 CSS Grid minmax function is used to dynamically make a responsive layout with a specificed item width. On the left side, you can control the minimum width and spacing between grid items.
 
