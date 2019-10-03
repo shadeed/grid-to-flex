@@ -92,6 +92,106 @@ class gridToFlex {
         this.gridWrapper.style.gridRowGap = `${this.gridRowGapValue}px`;
     }
 
+    addBreakpoint(defaultLength = 0) {
+        let listLength = (defaultLength > 0) ? defaultLength : breakPointsList.children.length;
+    
+        let mainDiv = document.createElement('div');
+        mainDiv.classList.add('flex-breakpoints-item');
+    
+        let deleteBtn = document.createElement('button');
+        deleteBtn.innerHTML = "remove";
+        deleteBtn.setAttribute('aria-label', 'Remove Breakpoint');
+        deleteBtn.addEventListener('click', function(e){
+            e.preventDefault();
+            e.target.parentNode.parentNode.removeChild(e.target.parentNode);
+    
+            // Update the number, IDs of the breakpoints
+            //updateBreakpoints();
+    
+            let parentElm = e.target.parentNode;
+            let parentLabel = parentElm.querySelector('.c-label');
+            let labelFor = parentLabel.getAttribute('for');
+            let index = parseInt(labelFor.replace(/[^0-9]/g, ''), 10);
+            
+            //flexBreakpointsInfo.splice(index-1, 1);
+    
+            // Rename the array IDs to match the inputs
+            //renameFlexbreakpointsInfo(flexBreakpointsInfo.length);
+    
+            //console.log(flexBreakpointsInfo);
+        });
+    
+        function renameFlexbreakpointsInfo(arrayLength) {
+            flexBreakpointsInfo = [];
+    
+            console.log(arrayLength);
+    
+            for (let i = 0; i < arrayLength; i++) {
+                flexBreakpointsInfo.push({
+                    firstInput: `fromWidth-${i+1}`,
+                    secondInput: `itemsToShow-${i+1}`
+                });
+            }
+        }
+    
+        let bpTitle = document.createElement('h3');
+        bpTitle.innerHTML = `Breakpoint ${listLength+1}`;
+    
+        let gridDiv = document.createElement('div');
+        gridDiv.classList.add('o-grid--2');
+    
+        let firstInputDiv = document.createElement('div');
+    
+        let firstInputLabel = document.createElement('label');
+        firstInputLabel.classList.add('c-label');
+        firstInputLabel.setAttribute('for', `fromWidth-${listLength+1}`);
+        firstInputLabel.innerHTML = "Min Width";
+    
+        let firstInput = document.createElement('input');
+        firstInput.classList.add('c-input');
+        firstInput.setAttribute('type', 'number');
+        firstInput.setAttribute('id', `fromWidth-${listLength+1}`);
+        firstInput.setAttribute('placeholder', 'e.g: 500px');
+        firstInput.setAttribute('required', '');
+    
+        let secondInputDiv = document.createElement('div');
+    
+        let secondInputLabel = document.createElement('label');
+        secondInputLabel.classList.add('c-label');
+        secondInputLabel.setAttribute('for', `itemsToShow-${listLength+1}`);
+        secondInputLabel.innerHTML = "Items";
+    
+        let secondInput = document.createElement('input');
+        secondInput.classList.add('c-input');
+        secondInput.setAttribute('type', 'number');
+        secondInput.setAttribute('id', `itemsToShow-${listLength+1}`);
+        secondInput.setAttribute('placeholder', 'e.g: 3');
+        secondInput.setAttribute('required', '');
+    
+        firstInputDiv.appendChild(firstInputLabel);
+        firstInputDiv.appendChild(firstInput);
+    
+        secondInputDiv.appendChild(secondInputLabel);
+        secondInputDiv.appendChild(secondInput);
+    
+        gridDiv.appendChild(firstInputDiv);
+        gridDiv.appendChild(secondInputDiv);
+    
+        mainDiv.appendChild(deleteBtn);
+        mainDiv.appendChild(bpTitle);
+        mainDiv.appendChild(gridDiv);
+    
+        flexBreakpointsInfo.push({
+            firstInput: firstInput.getAttribute('id'),
+            secondInput: secondInput.getAttribute('id')
+        });
+    
+        if(flexBreakpointsInfo.length > 0) {
+            generateCSS.removeAttribute('disabled');
+        }
+    
+        return mainDiv;
+    }
 }
 
-var test = new gridToFlex();
+let test = new gridToFlex();
