@@ -49,6 +49,8 @@ class gridToFlex {
         this.gridRowGap.addEventListener('input', this.rowGapChange.bind(this));
         this.addBreakpointBtn.addEventListener('click', this.addBreakpointEvent.bind(this));
         this.generateCSS.addEventListener('click', this.generateResult.bind(this));
+        this.copyCSS.addEventListener('click', this.copyResult.bind(this));
+        this.closeModal.addEventListener('click', this.closeResult.bind(this));
     }
 
     colChange() {
@@ -341,24 +343,22 @@ class gridToFlex {
 
     }`;
 
-        
-
         let code = result1 + "\n" + breakPointsList.join("\n") + "\n" + grid;
 
         this.resultCode.innerHTML = code;
 
         this.resultModal.classList.add('is-active');
+    }
 
-        this.copyCSS.addEventListener('click', function(e){
-            e.preventDefault();
-            this.resultCode.select();
-            document.execCommand("copy");
-        });
+    copyResult(e) {
+        e.preventDefault();
+        this.resultCode.select();
+        document.execCommand("copy");
+    }
 
-        this.closeModal.addEventListener('click', function(e){
-            e.preventDefault();
-            this.resultModal.classList.remove('is-active');
-        });
+    closeResult(e) {
+        e.preventDefault();
+        this.resultModal.classList.remove('is-active');
     }
 }
 
