@@ -131,6 +131,15 @@ form {
 
 	a {
 		color: inherit;
+		text-decoration: none;
+	}
+
+	a:last-child {
+		margin-left: 1rem;
+	}
+
+	a:hover {
+		text-decoration: underline;
 	}
 
 	@media (min-width: 1000px) {
