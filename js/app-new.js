@@ -354,16 +354,14 @@ class gridToFlex {
         let firstActiveElm = focusableElms[0];
         let lastActiveElm = focusableElms[focusableElms.length - 1];
 
-        var KEYCODE_TAB = 9;
-
         this.resultModal.addEventListener('keydown', function(e) {
-            if (e.key === 'Tab' || e.keyCode === KEYCODE_TAB) {
-                if ( e.shiftKey ) /* shift + tab */ {
+            if (e.key === 'Tab' || e.keyCode === 9) {
+                if ( e.shiftKey ) {
                     if (document.activeElement === firstActiveElm) {
                         lastActiveElm.focus();
                         e.preventDefault();
                     }
-                } else /* tab */ {
+                } else {
                     if (document.activeElement === lastActiveElm) {
                         firstActiveElm.focus();
                         e.preventDefault();
