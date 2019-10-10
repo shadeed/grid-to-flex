@@ -1,6 +1,7 @@
 config.codekit3
 README.html
 js/app-min.js
+js/app-new-min.js
 .idea/
 js/untitled.xml
 build

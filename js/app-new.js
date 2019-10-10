@@ -348,6 +348,29 @@ class gridToFlex {
         this.resultCode.innerHTML = code;
 
         this.resultModal.classList.add('is-active');
+
+        let focusableElms = this.resultModal.querySelectorAll('a[href]:not([disabled]), button:not([disabled])');
+
+        let firstActiveElm = focusableElms[0];
+        let lastActiveElm = focusableElms[focusableElms.length - 1];
+
+        var KEYCODE_TAB = 9;
+
+        this.resultModal.addEventListener('keydown', function(e) {
+            if (e.key === 'Tab' || e.keyCode === KEYCODE_TAB) {
+                if ( e.shiftKey ) /* shift + tab */ {
+                    if (document.activeElement === firstActiveElm) {
+                        lastActiveElm.focus();
+                        e.preventDefault();
+                    }
+                } else /* tab */ {
+                    if (document.activeElement === lastActiveElm) {
+                        firstActiveElm.focus();
+                        e.preventDefault();
+                    }
+                }
+            }
+        });
     }
 
     copyResult(e) {
